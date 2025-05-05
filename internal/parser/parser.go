@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/white67/swift_api/internal/model"
 )
@@ -28,25 +29,27 @@ func ParseSwiftCSV(path string) ([]model.Bank, error) {
 
 	for {
 		record, err := reader.Read()
-		if err != io.EOF {
+		if err == io.EOF {
 			break
 		} else if err != nil {
 			return nil, err
 		}
 
 		countryCode := record[0]
+		countryCode = strings.ToUpper(countryCode)
 		swiftCode := record[1]
 		bankName := record[3]
 		address := record[4]
 		countryName := record[6]
+		countryName = strings.ToUpper(countryName)
 
 		swift := model.Bank{
-			Address:		address,
-			Name:			bankName,
-			CountryCode: 	countryCode,
-			CountryName:	countryName,
-			SwiftCode:		swiftCode,
-			IsHeadquarter: 	model.TypeHeadquarters(swiftCode),
+			Address:       address,
+			Name:          bankName,
+			CountryCode:   countryCode,
+			CountryName:   countryName,
+			SwiftCode:     swiftCode,
+			IsHeadquarter: model.TypeHeadquarters(swiftCode),
 		}
 
 		result = append(result, swift)

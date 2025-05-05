@@ -4,7 +4,7 @@ type Bank struct {
 	Address       string `json:"address"`
 	Name          string `json:"bankName"`
 	CountryCode   string `json:"countryISO2"`
-	CountryName   string `json:"countryName"`
+	CountryName   string `json:"countryName,omitempty"`
 	IsHeadquarter bool   `json:"isHeadquarter"`
 	SwiftCode     string `json:"swiftCode"`
 }
