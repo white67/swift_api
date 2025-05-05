@@ -1,0 +1,11 @@
+Country,SWIFT Code,Bank Code,Bank Name,Branch,Address,Post Code,Country Full Name
+US,CHASUS33XXX,CHAS,JPMorgan Chase,Headquarters,383 Madison Ave New York,10017,United States
+US,CHASUS33FRB,CHAS,JPMorgan Chase,Foreign Branch,123 Foreign St New York,10018,United States
+UK,BARCGB22XXX,BARC,Barclays Bank,Headquarters,1 Churchill Place London,E14 5HP,United Kingdom
+DE,DEUTDEFFXXX,DEUT,Deutsche Bank,Headquarters,Taunusanlage 12 Frankfurt,60325,Germany
+DE,DEUTDEFFBER,DEUT,Deutsche Bank,Berlin Branch,Under den Linden 15 Berlin,10117,Germany
+FR,BNPAFRPPXXX,BNPA,BNP Paribas,Headquarters,16 Boulevard des Italiens Paris,75009,France
+ES,BBVAESMMXXX,BBVA,Banco Bilbao Vizcaya,Headquarters,Plaza San Nicolas 4 Bilbao,48005,Spain
+IT,BCITITMMXXX,BCIT,Intesa Sanpaolo,Headquarters,Piazza San Carlo 156 Turin,10121,Italy
+CA,ROYCCAT2XXX,ROYC,Royal Bank of Canada,Headquarters,200 Bay St Toronto,M5J 2J5,Canada
+JP,BOTKJPJTXXX,BOTK,MUFG Bank,Headquarters,2-7-1 Marunouchi Tokyo,100-8388,Japan
