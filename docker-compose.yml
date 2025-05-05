@@ -1,0 +1,40 @@
+services:
+  go-app:
+    container_name: API_BACKEND
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/root/data
+    ports:
+      - "8080:8080"  # expose port 8080
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432 
+      - DB_USER=bank_manager
+      - DB_PASSWORD=2024bbbanks
+      - DB_NAME=swiftdb
+      - ENV=production
+    depends_on:
+      - db  # wait for the database
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U your_db_user -d your_db_name -h localhost"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
+
+  db:
+    container_name: API_DB
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: bank_manager
+      POSTGRES_PASSWORD: 2024bbbanks
+      POSTGRES_DB: swiftdb
+    ports:
+      - "5432:5432"  # expose port 5432 for postgresql
+    volumes:
+      - pg_data:/var/lib/postgresql/data 
+
+volumes:
+  pg_data:

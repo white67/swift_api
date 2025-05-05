@@ -1,0 +1,23 @@
+services:
+  test:
+    container_name: API_TEST
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      - DB_HOST=db-test
+      - DB_PORT=5432
+      - DB_USER=bank_manager
+      - DB_PASSWORD=2024bbbanks
+      - DB_NAME=swiftdb
+      - ENV=test
+    depends_on:
+      - db-test
+  
+  db-test:
+    container_name: API_DB_TEST
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: bank_manager
+      POSTGRES_PASSWORD: 2024bbbanks
+      POSTGRES_DB: swiftdb
